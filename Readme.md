@@ -2,7 +2,7 @@
 Paw application to manage and sign files in contract.
 
 # Development
-## Setup
+## Node app setup
 
 **Clone it outside core application to avoid build conflicts**
 
@@ -25,7 +25,50 @@ Then inside [package.json of core](https://code.plugandwork.net/plugandwork/core
 
 Then run `yarn` or `npm install`
 
-## TODO
-Add process to install app to backend
+After installed, there following scripts are auto-running
+- build app (to dist folder)
+- compress app (with [compressor file](./compressor.js))
 
-Start the frontend and backend develoment server and show your app
+If need, you can add more files and folders to archives by adding it to `files` or `folders` variables into [compressor file](./compressor.js)
+
+## Rails app setup
+
+⚠️⚠️⚠️ When app is zipped go to core server and start it with `rails s` ⚠️⚠️⚠️ **need a started server to run api requests**
+
+Into another shell, in core folder do
+```shell
+bundle exec rake store:install_app
+
+****************************************************************************************************
+___Plugandwork frontend apps installer___
+****************************************************************************************************
+Welcome to development apps installer
+What the user_id to link app (default is admin)
+5ce414424ac06e5c12769a47 # type user id and/or press Enter
+
+What is the name of the package ? (ex: emails)
+examples # type package name and press Enter
+
+What is the mode of the package ? (default is same of name)
+# type package mode and/or press Enter
+
+What is the version of the package ? (default: 1.0.0)
+# type package version and/or press Enter
+
+What is the type of the package ? (default: view)
+# type package type and/or press Enter
+
+What is the absolute path of the package ? (ex: /path/of/package.zip)
+path/to/examples_app/examples.zip # type package name and press Enter
+
+Create app
+App created with id 5f7db9f0d19554e5a986f120
+Publish package
+Package published
+Active app
+App actived
+Install app for user example@plugandwork.fr
+App installed !
+```
+
+Start the frontend and backend develoment server and show your working app
