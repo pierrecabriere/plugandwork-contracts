@@ -33,7 +33,9 @@ If need, you can add more files and folders to archives by adding it to `files` 
 
 ## Rails app setup
 
-⚠️⚠️⚠️ When app is zipped go to core server and start it with `rails s` ⚠️⚠️⚠️ **need a started server to run api requests**
+⚠️⚠️⚠️ When app is zipped go to core server and start it with `rails s` ⚠️⚠️⚠️ 
+
+**need a started server to run api requests**
 
 Into another shell, in core folder do
 ```shell
@@ -71,4 +73,4 @@ Install app for user example@plugandwork.fr
 App installed !
 ```
 
-Start the frontend and backend develoment server and show your working app
+**Start the frontend and backend develoment server and show your working app**
