@@ -10,20 +10,8 @@ Paw application example.
 git clone git@code.plugandwork.net:plugandwork.app/examples-app.git
 cd examples-app
 npm install
-npm start
+npm run-script build
 ```
-
-Then inside [package.json of core](https://code.plugandwork.net/plugandwork/core/-/blob/develop/frontend/package.json) add the fallowing
-
-```json
-{
-  "dependencies": {
-    "examples": "link:../../relative_path/to/examples-app",
-  }
-}
-```
-
-Then run `yarn` or `npm install`
 
 After installed, there following scripts are auto-running
 - build app (to dist folder)
@@ -74,3 +62,19 @@ App installed !
 ```
 
 **Start the frontend and backend develoment server and show your working app**
+
+## Live reload
+After installed app on core server, you can replace as follow inside [package.json of core](https://code.plugandwork.net/plugandwork/core/-/blob/develop/frontend/package.json)
+
+```diff
+{
+  "dependencies": {
+    - "examples": "file:../../relative_path/to/examples-app",
+    + "examples": "link:../../relative_path/to/examples-app",
+  }
+}
+```
+
+Then run `yarn` or `npm install`
+
+Now, you can run `npm start` into example app folder to watch changes, then frontend autorefesh !
