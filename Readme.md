@@ -1,5 +1,5 @@
 # Examples app
-Paw application to manage and sign files in example.
+Paw application example.
 
 # Development
 ## Node app setup
