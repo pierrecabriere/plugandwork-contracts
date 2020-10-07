@@ -1,5 +1,5 @@
-# Contracts app
-Paw application to manage and sign files in contract.
+# Examples app
+Paw application to manage and sign files in example.
 
 # Development
 ## Node app setup
@@ -7,8 +7,8 @@ Paw application to manage and sign files in contract.
 **Clone it outside core application to avoid build conflicts**
 
 ```shell
-git clone git@code.plugandwork.net:plugandwork.app/contracts-app.git
-cd contracts-app
+git clone git@code.plugandwork.net:plugandwork.app/examples-app.git
+cd examples-app
 npm install
 npm start
 ```
@@ -18,7 +18,7 @@ Then inside [package.json of core](https://code.plugandwork.net/plugandwork/core
 ```json
 {
   "dependencies": {
-    "contracts": "link:../../relative_path/to/contracts-app",
+    "examples": "link:../../relative_path/to/examples-app",
   }
 }
 ```

@@ -8,11 +8,11 @@ require('./index.css')
 
 const { Folder } = Models;
 
-interface IContractsAppProps extends PawViewProps {
+interface IExamplesAppProps extends PawViewProps {
   folders: PawConnectedModel<FolderType>;
 }
 
-const ContractsApp: React.FunctionComponent<IContractsAppProps> = ({ folders, ...rest }) => {
+const ExamplesApp: React.FunctionComponent<IExamplesAppProps> = ({ folders, ...rest }) => {
   const [_example, set_example] = React.useState('Plugandwork - Example app with a connexion to model Folder');
 
   return(
@@ -23,4 +23,4 @@ const ContractsApp: React.FunctionComponent<IContractsAppProps> = ({ folders, ..
 };
 
 // @ts-ignore
-export default Folder.connect('folders')(ContractsApp);
+export default Folder.connect('folders')(ExamplesApp);
