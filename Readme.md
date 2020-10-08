@@ -1,4 +1,5 @@
 # Examples app
+![logo](logo.png)
 Paw application example.
 
 # Development
