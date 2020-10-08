@@ -1,0 +1,9 @@
+build app:
+  image: node:12
+  stage: build
+  script:
+    - npm run-script build
+  artifacts:
+    expire_in: 1 week
+    paths:
+      - dist
