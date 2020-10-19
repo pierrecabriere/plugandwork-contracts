@@ -1,0 +1,8 @@
+{
+  "schema": {
+    "type": ["list", "grid", "carousel"]
+  },
+  "default": {
+    "type": "list"
+  }
+}
