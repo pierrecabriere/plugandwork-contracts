@@ -21,7 +21,8 @@
     "test:watch": "react-scripts test --env=jsdom",
     "predeploy": "cd example && npm install && npm run build",
     "deploy": "gh-pages -d example/build",
-    "postbuild": "node compressor.js"
+    "postbuild": "node compressor.js",
+    "zip": "run-s build && bestzip bundle.zip dist public .nvmrc compressor.js manifest.json package.json settings.json"
   },
   "peerDependencies": {
     "plugandwork-toolkit": "^1.0.6",
@@ -29,7 +30,11 @@
     "react-dom": "^16.0.0"
   },
   "devDependencies": {
+    "@types/react": "^16.9.51",
+    "@types/react-dom": "^16.9.8",
+    "@types/react-router-dom": "^5.1.6",
     "babel-eslint": "^10.0.3",
+    "bestzip": "^2.1.7",
     "cross-env": "^7.0.2",
     "eslint": "^6.8.0",
     "eslint-config-prettier": "^6.7.0",
@@ -48,10 +53,7 @@
     "plugandwork-toolkit": "^1.1.7",
     "postcss-import": "^12.0.1",
     "prettier": "^2.0.4",
-    "react-scripts": "^3.4.1",
-    "@types/react": "^16.9.51",
-    "@types/react-dom": "^16.9.8",
-    "@types/react-router-dom": "^5.1.6"
+    "react-scripts": "^3.4.1"
   },
   "files": [
     "dist"
