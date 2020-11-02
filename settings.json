@@ -1,8 +1,22 @@
 {
   "schema": {
-    "type": ["list", "grid", "carousel"]
+    "exampleFieldText": {
+      "name": "Champ de text d'exemple",
+      "type": "Text"
+    },
+    "exampleFieldSelect": {
+      "name": "Champ select d'exemple",
+      "type": "Select",
+      "options": [{
+        "value": "value1",
+        "label": "Valeur 1"
+      }, {
+        "value": "value2",
+        "label": "Valeur 2"
+      }]
+    }
   },
-  "default": {
-    "type": "list"
+  "defaults": {
+    "exampleField": "value1"
   }
 }
