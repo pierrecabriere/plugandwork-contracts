@@ -1,6 +1,6 @@
 {
-  "name": "example",
-  "version": "1.0.0",
+  "name": "plugandwork-emails",
+  "version": "1.0.9",
   "description": "",
   "author": "plugandwork",
   "license": "MIT",
@@ -26,7 +26,8 @@
   "peerDependencies": {
     "plugandwork-toolkit": "^1.0.6",
     "react": "^16.0.0",
-    "react-dom": "^16.0.0"
+    "react-dom": "^16.0.0",
+    "prop-types": "^15.7.0"
   },
   "devDependencies": {
     "@types/react": "^16.9.51",
@@ -52,12 +53,23 @@
     "plugandwork-toolkit": "^1.2.1",
     "postcss-import": "^12.0.1",
     "prettier": "^2.0.4",
-    "react-scripts": "^3.4.1"
+    "react-scripts": "^3.4.1",
+    "prettier-eslint": "^9.0.1",
+    "prettier-eslint-cli": "^5.0.0"
   },
   "files": [
     "dist"
   ],
   "dependencies": {
-    "adm-zip": "^0.4.16"
+    "@fortawesome/fontawesome-svg-core": "^1.2.28",
+    "@fortawesome/pro-light-svg-icons": "^5.15.0",
+    "@fortawesome/pro-regular-svg-icons": "^5.15.0",
+    "@fortawesome/pro-solid-svg-icons": "^5.15.0",
+    "@fortawesome/react-fontawesome": "^0.1.9",
+    "@tinymce/tinymce-react": "^3.5.0",
+    "adm-zip": "^0.4.16",
+    "fast-deep-equal": "^3.1.3",
+    "moment": "^2.29.1",
+    "react-dials": "^1.0.4"
   }
 }
