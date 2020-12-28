@@ -1,6 +1,6 @@
 {
   "short_name": "Example",
-  "name": "A Simple Example App",
+  "name": "A Simple example App",
   "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vel tempus velit. Mauris posuere elit ac molestie sagittis. Ut id laoreet odio, quis euismod felis. Praesent sodales turpis malesuada, tincidunt sapien sodales, ornare elit. Etiam luctus aliquam velit, a auctor mauris maximus nec. Nullam id finibus nunc. Suspendisse bibendum metus vitae ultricies facilisis. Donec id interdum odio. Suspendisse facilisis libero vel tellus vulputate, suscipit laoreet ligula aliquet. Cras nec quam eget nisl viverra convallis nec eget metus. Proin est neque, ullamcorper quis malesuada at, blandit vel arcu.",
   "default-icon": "128",
   "background_color": "#3367D6",

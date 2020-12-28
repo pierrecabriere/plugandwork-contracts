@@ -1,9 +1,9 @@
 import { PlugandworkApp } from 'plugandwork-toolkit';
 import settingsJSON from "../settings.json";
-import ExampleApp from './app';
+import App from './app';
 
 export default class extends PlugandworkApp {
-  static component = ExampleApp;
+  static component = App;
   static settings = settingsJSON;
   static icon = require('../public/logo@128.png');
 
