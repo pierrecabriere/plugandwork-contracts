@@ -7,11 +7,11 @@ export default class extends PlugandworkApp {
   static settings = settingsJSON;
   static icon = require('../public/logo@128.png');
 
-  static async onInstall(view: PawModel) {
+  static async onInstall(view: any) {
     console.log("app installed with view :", view.id);
   }
 
-  static async onUninstall(view: PawModel) {
+  static async onUninstall(view: any) {
     console.log("app uninstalled");
   }
 }
