@@ -1,13 +1,16 @@
-import { PlugandworkApp } from 'plugandwork-toolkit';
-import settingsJSON from "../settings.json";
+import React from 'react';
+import ReactDOM from "react-dom";
 import App from './app';
 import PublicApp from './public';
+import {lib,utils} from "@plugandwork/core-ui"
 
-export default class extends PlugandworkApp {
+const { NODE_ENV } = process.env;
+
+class ExampleApp extends lib.PlugandworkApp {
   static component = App;
   static publicComponent = PublicApp;
-  static settings = settingsJSON;
-  static icon = require('../public/logo@128.png');
+  static settings = require("./settings.json");
+  static icon = require('./images/logo@128.png');
 
   static handleDoc(doc, view) {
     return [
@@ -24,3 +27,14 @@ export default class extends PlugandworkApp {
     console.log("app uninstalled");
   }
 }
+
+if (NODE_ENV === "development") {
+  ReactDOM.render(
+    <React.StrictMode>
+      {React.createElement(utils.ReactEntry, { app: ExampleApp })}
+    </React.StrictMode>,
+    document.getElementById("root")
+  );
+}
+
+export default ExampleApp;

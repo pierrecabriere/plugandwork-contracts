@@ -7,9 +7,9 @@
   "theme_color": "#3367D6",
   "default_locale": "fr",
   "icons": {
-    "512": "./public/icon@512.png",
-    "128": "./public/icon@128.png",
-    "32": "./public/icon@32.png"
+    "512": "./src/images/icon@512.png",
+    "128": "./src/images/icon@128.png",
+    "32": "./src/images/icon@32.png"
   },
   "manifest_version": 1,
   "author": "plugandwork"
