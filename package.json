@@ -1,5 +1,5 @@
 {
-  "name": "example",
+  "name": "@plugandwork/example-app",
   "version": "1.0.0",
   "description": "",
   "author": "plugandwork",
@@ -11,8 +11,8 @@
     "node": ">=10"
   },
   "scripts": {
-    "build": "microbundle-crl --no-compress --format modern,cjs --css-modules false --external react=React,react-dom=ReactDOM",
-    "start": "microbundle-crl watch --no-compress --format modern,cjs --css-modules false --external react=React,react-dom=ReactDOM",
+    "build": "microbundle-crl --external react=React,react-dom=ReactDOM",
+    "start": "microbundle-crl watch --external react=React,react-dom=ReactDOM",
     "test": "run-s test:unit test:lint test:build",
     "test:build": "run-s build",
     "test:lint": "eslint ",
@@ -22,13 +22,10 @@
     "postbuild": "run-s zip"
   },
   "peerDependencies": {
-    "plugandwork-toolkit": "^1.4.6",
-    "react": "^16.0.0",
-    "react-dom": "^16.0.0",
-    "prop-types": "^15.7.0",
-    "react-i18next": "^11.7.4"
+    "react": "*"
   },
   "devDependencies": {
+    "@plugandwork/core-ui": "0.0.1-beta",
     "@types/react": "^16.9.51",
     "@types/react-dom": "^16.9.8",
     "@types/react-router-dom": "^5.1.6",
@@ -52,10 +49,9 @@
     "plugandwork-toolkit": "^1.4.6",
     "postcss-import": "^12.0.1",
     "prettier": "^2.0.4",
-    "react-scripts": "^3.4.1",
     "prettier-eslint": "^9.0.1",
     "prettier-eslint-cli": "^5.0.0",
-    "react-i18next": "^11.7.4"
+    "react-scripts": "^3.4.1"
   },
   "files": [
     "dist"

@@ -5,15 +5,14 @@ import './index.scss';
 // Keep it
 require('./index.css');
 
-class ExampleAppPublic extends React.Component<any, any> {
+class ExampleAppPublic extends React.Component {
   render() {
     return (
       <div>
-        Hello world !
+        <h1>Hello public !</h1>
       </div>
     );
   }
 }
 
-// @ts-ignore
-export default ExampleAppPublic as React.Component;
+export default ExampleAppPublic;
