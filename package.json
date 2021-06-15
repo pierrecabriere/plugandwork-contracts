@@ -1,6 +1,6 @@
 {
   "name": "@plugandwork/example-app",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "",
   "author": "plugandwork",
   "license": "MIT",
@@ -25,11 +25,9 @@
   "peerDependencies": {
     "react": "*",
     "react-dom": "*",
-    "react-is": "*",
-    "@plugandwork/core-ui": "^0.1.0-beta"
+    "react-is": "*"
   },
   "devDependencies": {
-    "@plugandwork/core-ui": "^0.1.1-beta",
     "@types/react": "^16.9.51",
     "@types/react-dom": "^16.9.8",
     "@types/react-router-dom": "^5.1.6",
@@ -62,6 +60,7 @@
     "dist"
   ],
   "dependencies": {
+    "@plugandwork/core-ui": "^0.1.1-beta"
   },
   "browserslist": {
     "production": [
