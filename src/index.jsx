@@ -9,8 +9,8 @@ const { NODE_ENV } = process.env;
 class ExampleApp extends lib.PlugandworkApp {
   static component = App;
   static publicComponent = PublicApp;
-  static settings = require("./settings.json");
-  static icon = require('./images/logo@128.png');
+  static settings = require("./assets/settings.json");
+  static icon = require('./assets/logo@128.png');
 
   static handleDoc(doc, view) {
     return [
@@ -29,12 +29,16 @@ class ExampleApp extends lib.PlugandworkApp {
 }
 
 if (NODE_ENV === "development") {
-  ReactDOM.render(
-    <React.StrictMode>
-      {React.createElement(utils.ReactEntry, { app: ExampleApp })}
-    </React.StrictMode>,
-    document.getElementById("root")
-  );
+  try {
+    ReactDOM.render(
+      <React.StrictMode>
+        {React.createElement(utils.ReactEntry, { app: ExampleApp })}
+      </React.StrictMode>,
+      document.getElementById("plugandworkDevRoot")
+    );
+  } catch (e) {
+    console.error(e);
+  }
 }
 
 export default ExampleApp;
