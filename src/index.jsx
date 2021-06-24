@@ -10,7 +10,7 @@ class ExampleApp extends lib.PlugandworkApp {
   static component = App;
   static publicComponent = PublicApp;
   static settings = require("./assets/settings.json");
-  static icon = require('./assets/logo@128.png');
+  static icon = require('./assets/logo@128.png').default;
 
   static handleDoc(doc, view) {
     return [

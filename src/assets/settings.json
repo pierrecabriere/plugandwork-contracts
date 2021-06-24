@@ -1,11 +1,11 @@
 {
   "schema": {
-    "folders": {
-      "name": "Dossiers",
-      "type": "JSON"
+    "baseline": {
+      "name": "Introduction/Baseline",
+      "type": "Text"
     }
   },
   "defaults": {
-    "folders": []
+    "baseline": "This text is configurable through App store configuration"
   }
 }
