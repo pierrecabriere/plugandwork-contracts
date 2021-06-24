@@ -1,54 +1,32 @@
-# Examples app
-![logo](logo.png)
+# Application d'exemple pour plugandwork/frontend
 
-Paw application example.
+## Developpement
 
-# Development
-## Node app setup
+Vous pouvez lancer l'application en mode développement pour éviter d'avoir à l'installer dans core et à la mettre à jour à chaque modification.
+En mode dev, le live reload est activé mais il n'y a pas le contexte des vues qui est rendu par core.
+Core-ui a besoin de connaitre le point d'api sur lequel exécuter les requetes. Par défaut, celui-ci est http://localhost:3000. Cependant, si vous lancez core sur
+une autre adresse, il vous faudra modifier la constante REACT_APP_PAW_HOST dans `scripts.dev` du fichier package.json.
 
-**Clone it outside core application to avoid build conflicts**
+### Lancer le serveur de développement
 
-```shell
-git clone git@code.plugandwork.net:plugandwork.app/example_app.git
-cd example_app
+```
 npm install
-npm run-script build
+npm run dev
 ```
 
-## Rails app setup
+## Publier l'application
 
-⚠️⚠️⚠️ When app is zipped go to core server and start it with `rails s` ⚠️⚠️⚠️
+Pour installer l'application sur core, celle-ci doit etre publiée sur le store de npm.
+Avant de publier votre application, vérifiez que tout fonctionne car cette étape *correspond à la mise en production*.
 
-Then push your app to the backend like this
-
-```shell
-curl --location --request POST 'https://localhost:3000/api/d2/apps/publish' \
---header 'Authorization: Bearer token_value' \
---form 'file=@"/path/to/example_app/bundle.zip"'
+```
+npm install
+npm run build
+npm publish
 ```
 
+## Resources
 
-## Live reload
-After installed app on core server, you can replace as follow inside [package.json of core](https://code.plugandwork.net/plugandwork/core/-/blob/develop/frontend/package.json)
-
-```diff
-{
-  "dependencies": {
-    - "example": "file:view_app_modules/example_app",
-    + "example": "file:../../relative_path/to/example_app",
-  }
-}
-```
-
-Then run `npm install`
-
-Now, you can run `npm start` into example app folder to watch changes, then frontend autorefesh !
-
-# Publish app
-To publish app on paw store, run following request
-
-```shell
-curl --location --request POST 'https://store.plugandwork.fr/api/d2/apps/publish' \
---header 'Authorization: Bearer token_value' \
---form 'file=@"/path/to/example_app/bundle.zip"'
-```
+- *UX inspiration* : http://skote-v-light.react.themesbrand.com/dashboard
+- *UI kit* : https://tailwindcss.com
+- *Icones* : https://fontawesome.com/v5.15/icons?d=gallery&p=1
