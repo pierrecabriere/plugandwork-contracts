@@ -30,3 +30,4 @@ npm publish
 - *UX inspiration* : http://skote-v-light.react.themesbrand.com/dashboard
 - *UI kit* : https://tailwindcss.com
 - *Icones* : https://fontawesome.com/v5.15/icons?d=gallery&p=1
+- *Logo* : https://www.gnome-look.org/s/Gnome/p/1012430
