@@ -11,14 +11,17 @@
     "node": ">=12"
   },
   "scripts": {
-    "build": "NODE_ENV=production microbundle-crl --format modern,cjs",
-    "start": "NODE_ENV=production microbundle-crl watch --format modern,cjs",
+    "build": "NODE_ENV=production microbundle-crl -no-compress --css-modules false --format modern,cjs",
+    "start": "microbundle-crl watch -no-compress --css-modules false --format modern,cjs",
     "dev": "NODE_ENV=development PORT=3001 REACT_APP_PAW_HOST=http://localhost:3000 craco start",
     "test": "run-s test:unit test:build",
+    "build:tailwind": "npx tailwindcss build -i src/index.css -o src/index.build.css",
     "test:build": "run-s build",
     "test:unit": "cross-env CI=1 craco test --env=jsdom",
     "test:watch": "react-scripts test --env=jsdom",
-    "postbuild": "cp -r src/assets dist/assets"
+    "prestart": "npm run build:tailwind",
+    "prebuild": "npm run build:tailwind",
+    "postbuild": "cp -r src/assets dist/assets && mv src/index.build.css dist/index.css"
   },
   "peerDependencies": {
     "react": "*",
@@ -28,28 +31,22 @@
     "tailwindcss": "*"
   },
   "devDependencies": {
-    "@types/react": "^16.9.51",
-    "@types/react-dom": "^16.9.8",
-    "@types/react-router-dom": "^5.1.6",
+    "@craco/craco": "^6.1.2",
+    "@plugandwork/core-ui": "^0.1.6-beta",
+    "@types/react": "^16.14.0",
+    "@types/react-dom": "^16.9.13",
+    "@types/react-router-dom": "^5.1.7",
+    "bson-objectid": "^2.0.1",
     "cross-env": "^7.0.2",
+    "lodash": "^4.17.21",
     "microbundle-crl": "^0.13.10",
-    "node-sass": "^4.14.1",
     "npm-run-all": "^4.1.5",
     "postcss-import": "^12.0.1",
     "prettier": "^2.0.4",
-    "react": "^16.13.1",
-    "react-dom": "^16.13.1",
-    "@reduxjs/toolkit": "^1.6.0",
-    "axios": "^0.21.1",
-    "bson-objectid": "^2.0.1",
-    "faye": "^1.4.0",
-    "lodash": "^4.17.21",
-    "redux-devtools-extension": "^2.13.9",
-    "rxjs-auth": "^1.1.0",
-    "@plugandwork/core-ui": "^0.1.5-beta",
-    "tailwindcss": "npm:@tailwindcss/postcss7-compat@^2.1.4",
-    "@craco/craco": "^6.1.2",
-    "react-scripts": "4.0.3"
+    "react": "^16.14.0",
+    "react-dom": "^16.14.0",
+    "react-scripts": "4.0.3",
+    "tailwindcss": "npm:@tailwindcss/postcss7-compat@^2.1.4"
   },
   "files": [
     "dist"

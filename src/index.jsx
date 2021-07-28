@@ -1,40 +1,42 @@
 import React from 'react';
-import ReactDOM from "react-dom";
+import ReactDOM from 'react-dom';
 import App from './app';
 import PublicApp from './public';
-import {lib,utils} from "@plugandwork/core-ui"
+import { lib, utils } from '@plugandwork/core-ui';
+import './index.css';
+
+// keep
+require('./index.css');
 
 const { NODE_ENV } = process.env;
 
 class ExampleApp extends lib.PlugandworkApp {
   static component = App;
   static publicComponent = PublicApp;
-  static settings = require("./assets/settings.json");
+  static settings = require('./assets/settings.json');
   static icon = require('./assets/logo@128.png').default;
 
   static handleDoc(doc, view) {
     return [
-      { label: "Action 1", link: `/${doc.id}` },
-      { label: "Action 2", onClick: () => alert("Hello World !") },
-    ]
+      { label: 'Action 1', link: `/${doc.id}` },
+      { label: 'Action 2', onClick: () => alert('Hello World !') },
+    ];
   }
 
   static async onInstall(view) {
-    console.log("app installed with view :", view.id);
+    console.log('app installed with view :', view.id);
   }
 
   static async onUninstall(view) {
-    console.log("app uninstalled");
+    console.log('app uninstalled');
   }
 }
 
-if (NODE_ENV === "development") {
+if (NODE_ENV === 'development') {
   try {
     ReactDOM.render(
-      <React.StrictMode>
-        {React.createElement(utils.ReactEntry, { app: ExampleApp })}
-      </React.StrictMode>,
-      document.getElementById("plugandworkDevRoot")
+      <React.StrictMode>{React.createElement(utils.ReactEntry, { app: ExampleApp })}</React.StrictMode>,
+      document.getElementById('plugandworkDevRoot')
     );
   } catch (e) {
     console.error(e);
