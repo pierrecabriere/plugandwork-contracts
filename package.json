@@ -32,7 +32,7 @@
   },
   "devDependencies": {
     "@craco/craco": "^6.1.2",
-    "@plugandwork/core-ui": "^0.1.6-beta",
+    "@plugandwork/core-ui": "^0.1.7-beta",
     "@types/react": "^16.14.0",
     "@types/react-dom": "^16.9.13",
     "@types/react-router-dom": "^5.1.7",
