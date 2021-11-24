@@ -35,7 +35,18 @@ class ExampleApp extends lib.PlugandworkApp {
 if (NODE_ENV === 'development') {
   try {
     ReactDOM.render(
-      <React.StrictMode>{React.createElement(utils.ReactEntry, { app: ExampleApp })}</React.StrictMode>,
+      <React.StrictMode>
+        <div className="h-screen flex overflow-hidden bg-gray-50">
+          <div className="flex flex-col w-0 flex-1 overflow-hidden">
+            <div className="bg-white shadow relative z-10">
+              <div className="max-w-screen-xl mx-auto flex-shrink-0 flex h-16" />
+            </div>
+            <main className="flex-1 relative overflow-y-auto focus:outline-none">
+              {React.createElement(utils.ReactEntry, { app: ExampleApp })}
+            </main>
+          </div>
+        </div>
+      </React.StrictMode>,
       document.getElementById('plugandworkDevRoot')
     );
   } catch (e) {
