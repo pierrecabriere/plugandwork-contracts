@@ -13,7 +13,7 @@
   "scripts": {
     "build": "NODE_ENV=production microbundle-crl -no-compress --css-modules false --format modern,cjs",
     "start": "microbundle-crl watch -no-compress --css-modules false --format modern,cjs",
-    "dev": "NODE_ENV=development PORT=3001 REACT_APP_PAW_HOST=https://rec.plugandwork.fr craco start",
+    "dev": "NODE_ENV=development PORT=3001 REACT_APP_PAW_HOST=http://localhost:3000 craco start",
     "test": "run-s test:unit test:build",
     "build:tailwind": "npx tailwindcss build -i src/index.css -o src/index.build.css",
     "test:build": "run-s build",
