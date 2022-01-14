@@ -1,7 +1,7 @@
 import * as React from 'react';
 import './index.css';
 
-class ExampleAppPublic extends React.Component {
+class ContractsAppPublic extends React.Component {
   render() {
     return (
       <main className="max-w-3xl mx-auto py-4 px-4 sm:px-6 lg:max-w-7xl lg:px-8">
@@ -15,4 +15,4 @@ class ExampleAppPublic extends React.Component {
   }
 }
 
-export default ExampleAppPublic;
+export default ContractsAppPublic;

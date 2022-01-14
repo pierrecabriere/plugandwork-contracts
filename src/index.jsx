@@ -10,7 +10,7 @@ require('./index.css');
 
 const { NODE_ENV } = process.env;
 
-class ExampleApp extends lib.PlugandworkApp {
+class ContractsApp extends lib.PlugandworkApp {
   static component = App;
   static publicComponent = PublicApp;
   static settings = require('./assets/settings.json');
@@ -42,7 +42,7 @@ if (NODE_ENV === 'development') {
               <div className="max-w-screen-xl mx-auto flex-shrink-0 flex h-16" />
             </div>
             <main className="flex-1 relative overflow-y-auto focus:outline-none">
-              {React.createElement(utils.ReactEntry, { app: ExampleApp })}
+              {React.createElement(utils.ReactEntry, { app: ContractsApp })}
             </main>
           </div>
         </div>
@@ -54,4 +54,4 @@ if (NODE_ENV === 'development') {
   }
 }
 
-export default ExampleApp;
+export default ContractsApp;

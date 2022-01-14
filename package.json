@@ -1,6 +1,6 @@
 {
-  "name": "@plugandwork/example-app",
-  "version": "1.1.0",
+  "name": "@plugandwork/contracts",
+  "version": "1.0.0",
   "description": "",
   "author": "plugandwork",
   "license": "MIT",
@@ -25,10 +25,16 @@
     "react": "^16.14.0",
     "react-dom": "^16.14.0",
     "react-router-dom": "^5.3.0",
-    "react-is": "*"
+    "react-is": "*",
+    "@fortawesome/pro-light-svg-icons": "^5.15.3",
+    "@fortawesome/pro-regular-svg-icons": "^5.15.3",
+    "@fortawesome/pro-solid-svg-icons": "^5.15.3"
   },
   "devDependencies": {
-    "@plugandwork/core-ui": "^0.4.2",
+    "@fortawesome/pro-light-svg-icons": "^5.15.3",
+    "@fortawesome/pro-regular-svg-icons": "^5.15.3",
+    "@fortawesome/pro-solid-svg-icons": "^5.15.3",
+    "@plugandwork/core-ui": "file:../core/frontend/core-ui",
     "autoprefixer": "^10.4.0",
     "bson-objectid": "^2.0.1",
     "cross-env": "^7.0.2",
@@ -57,5 +63,17 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^1.2.36",
+    "@fortawesome/react-fontawesome": "^0.1.16",
+    "@headlessui/react": "^1.4.2",
+    "@tailwindcss/forms": "^0.4.0-alpha.2",
+    "date-fns": "^2.22.1",
+    "filesize": "^6.3.0",
+    "react-intersection-observer": "^8.32.2",
+    "react-is-visible": "^1.1.2",
+    "react-select": "^4.3.1",
+    "react-visibility-sensor": "^5.1.1"
   }
 }

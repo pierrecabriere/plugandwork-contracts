@@ -1,16 +1,28 @@
 import * as React from 'react';
-import { models } from '@plugandwork/core-ui';
 import './index.css';
+import Layout from './Layout';
+import { BrowserRouter, Switch, Route } from 'react-router-dom';
+import ContractPage from './pages/Contract';
+import DashboardPage from './pages/Dashboard';
+import ContractFolderPage from './pages/ContractFolder';
+import DealPage from './pages/Deal';
 
-class ExampleApp extends React.Component {
+class ContractsApp extends React.Component {
   render() {
+    const basename = process.env.NODE_ENV === 'development' ? undefined : `/front${this.props.match.url}`;
     return (
-      <main className="max-w-3xl mx-auto py-4 px-4 sm:px-6 lg:max-w-7xl lg:px-8">
-        <h1>Hello world !</h1>
-        {this.props.docs.loading ? 'Chargement ...' : `${this.props.docs.list.length} docs`}
-      </main>
+      <BrowserRouter basename={basename}>
+        <Layout>
+          <Switch>
+            <Route path="/:dealId/:contractId/:folderId" component={ContractFolderPage} />
+            <Route path="/:dealId/:contractId" component={ContractPage} />
+            <Route path="/:dealId" component={DealPage} />
+            <Route component={DashboardPage} />
+          </Switch>
+        </Layout>
+      </BrowserRouter>
     );
   }
 }
 
-export default models.Doc.connect('docs', { init: true })(ExampleApp);
+export default ContractsApp;
