@@ -1,58 +1,71 @@
 import React, { useEffect, useState } from 'react';
 import { Dialog, Transition } from '@headlessui/react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faTimes, faHome } from '@fortawesome/pro-regular-svg-icons';
+import { faTimes, faHome, faPlus } from '@fortawesome/pro-regular-svg-icons';
 import Deal from '../models/Deal';
 import NavLink from '../utils/NavLink';
 import Contract from '../models/Contract';
+import CreateDealModal from '../modals/CreateDeal';
+import CreateContractModal from '../modals/CreateContract';
 
-let SidebarNavDealContractsList = ({ deal }) => {
-  {
-    /*useEffect(() => {
-    contracts.updateList({ query: { deal_id: deal.id } });
-  }, []);*/
-  }
+let SidebarNavDealContractsList = ({ deal, contracts }) => {
+  const [createContractModalOpen, setCreateContractModalOpen] = useState(false);
 
-  // TODO : use contracts from props connect
-  const [contracts, setContracts] = useState([]);
   useEffect(() => {
-    // TODO : pourquoi requete sur deal_name et pas deal_id ? Surtout que le champ name n'existe pas sur le modèle
-    Contract.fetch({ deal_name: deal.name }).then(setContracts);
-  }, []);
+    contracts.updateList({ query: { deal_id: deal.id } });
+  }, [deal.id]);
 
   return (
     <div className="space-y-1 w-full" id={`sub-menu-${deal.id}`} onClick={(e) => e.stopPropagation()}>
-      {contracts.map((contract) => (
-        <NavLink
-          to={`/${deal.id}/${contract.id}`}
-          className={(isActive) =>
-            `${
-              isActive ? 'bg-gray-900 text-gray-300' : 'text-gray-500 hover:bg-gray-900 hover:text-gray-300'
-            } block group py-2 pl-6 px-2 text-sm font-medium rounded-md w-full space-y-1`
-          }
+      {contracts.loading ? (
+        <button
+          onClick={(e) => {
+            e.preventDefault();
+          }}
+          type="button"
+          className="cursor-pointer text-left text-gray-300 hover:bg-gray-700 hover:text-white block group py-2 pl-6 px-2 text-sm font-medium rounded-md w-full space-y-1"
         >
-          {contract.title}
-        </NavLink>
-      ))}
+          Chargement ...
+        </button>
+      ) : (
+        contracts.list.map((contract) => (
+          <NavLink
+            to={`/${deal.id}/${contract.id}`}
+            className={(isActive) =>
+              `${
+                isActive ? 'bg-gray-900 text-gray-300' : 'text-gray-500 hover:bg-gray-900 hover:text-gray-300'
+              } block group py-2 pl-6 px-2 text-sm font-medium rounded-md w-full space-y-1`
+            }
+          >
+            {contract.title}
+          </NavLink>
+        ))
+      )}
+
       <button
-        onClick={(e) => e.preventDefault()}
+        onClick={(e) => {
+          e.preventDefault();
+          setCreateContractModalOpen(true);
+        }}
         type="button"
         className="cursor-pointer text-left text-gray-300 hover:bg-gray-700 hover:text-white block group py-2 pl-6 px-2 text-sm font-medium rounded-md w-full space-y-1"
       >
         Ajouter un contrat
       </button>
+
+      <CreateContractModal
+        deal={deal}
+        show={createContractModalOpen}
+        onClose={() => setCreateContractModalOpen(false)}
+      />
     </div>
   );
 };
 
 SidebarNavDealContractsList = Contract.connect('contracts')(SidebarNavDealContractsList);
 
-let SidebarNav = ({}) => {
-  // TODO : use deals from props connect
-  const [deals, setDeals] = useState([]);
-  useEffect(() => {
-    Deal.fetch({}).then(setDeals);
-  }, []);
+let SidebarNav = ({ deals }) => {
+  const [createDealModalOpen, setCreateDealModalOpen] = useState(false);
 
   return (
     <nav className="flex-1 px-2 space-y-1" aria-label="Sidebar">
@@ -73,48 +86,74 @@ let SidebarNav = ({}) => {
         </NavLink>
       </div>
 
-      {deals.map((deal) => {
-        return (
-          <NavLink
-            key={deal.id}
-            to={`/${deal.id}`}
-            className={(isActive) =>
-              `${
-                isActive ? 'bg-gray-700 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white'
-              } block group px-2 py-2 text-base font-medium rounded-md w-full space-y-2`
-            }
+      {deals.loading ? (
+        <div>
+          <button
+            type="button"
+            className={`text-gray-300 hover:bg-gray-700 hover:text-white group flex items-center px-2 py-2 text-base font-medium rounded-md w-full`}
           >
-            {(isActive) => (
-              <>
-                <button
-                  type="button"
-                  className={`flex items-center`}
-                  aria-controls={`sub-menu-${deal.id}`}
-                  aria-expanded={isActive}
-                >
-                  <svg
-                    className={`${
-                      isActive ? 'text-gray-400 rotate-90' : 'text-gray-300'
-                    } mr-2 flex-shrink-0 h-5 w-5 transform group-hover:text-gray-400 transition-colors ease-in-out duration-150`}
-                    viewBox="0 0 20 20"
-                    aria-hidden="true"
+            Chargement ...
+          </button>
+        </div>
+      ) : (
+        deals.list.map((deal) => {
+          return (
+            <NavLink
+              key={deal.id}
+              to={`/${deal.id}`}
+              className={(isActive) =>
+                `${
+                  isActive ? 'bg-gray-700 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white'
+                } block group px-2 py-2 text-base font-medium rounded-md w-full space-y-2`
+              }
+            >
+              {(isActive) => (
+                <>
+                  <button
+                    type="button"
+                    className={`flex items-center`}
+                    aria-controls={`sub-menu-${deal.id}`}
+                    aria-expanded={isActive}
                   >
-                    <path d="M6 6L14 10L6 14V6Z" fill="currentColor" />
-                  </svg>
-                  Team
-                </button>
+                    <svg
+                      className={`${
+                        isActive ? 'text-gray-400 rotate-90' : 'text-gray-300'
+                      } mr-2 flex-shrink-0 h-5 w-5 transform group-hover:text-gray-400 transition-colors ease-in-out duration-150`}
+                      viewBox="0 0 20 20"
+                      aria-hidden="true"
+                    >
+                      <path d="M6 6L14 10L6 14V6Z" fill="currentColor" />
+                    </svg>
+                    {deal.name}
+                  </button>
 
-                {isActive ? <SidebarNavDealContractsList deal={deal} /> : null}
-              </>
-            )}
-          </NavLink>
-        );
-      })}
+                  {isActive ? <SidebarNavDealContractsList deal={deal} /> : null}
+                </>
+              )}
+            </NavLink>
+          );
+        })
+      )}
+
+      <div>
+        <button
+          onClick={() => setCreateDealModalOpen(true)}
+          type="button"
+          className={`text-gray-300 hover:bg-gray-700 hover:text-white group flex items-center px-2 py-2 text-base font-medium rounded-md w-full`}
+        >
+          <div className="h-6 w-6 flex items-center justify-center mr-2">
+            <FontAwesomeIcon icon={faPlus} />
+          </div>
+          Ajouter un deal
+        </button>
+      </div>
+
+      <CreateDealModal show={createDealModalOpen} onClose={() => setCreateDealModalOpen(false)} />
     </nav>
   );
 };
 
-SidebarNav = Deal.connect('deals')(SidebarNav);
+SidebarNav = Deal.connect('deals', { query: {} })(SidebarNav);
 
 const Sidebar = ({ isOpen, onClose }) => {
   return (
